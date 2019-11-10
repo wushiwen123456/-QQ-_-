@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/HM-search/HM-search",
+    "pages/index/index",
+    "pages/top/top"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#f2f2f2"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#22D59C",
+    "fontSize": "32upx",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/commend.png",
+        "selectedIconPath": "static/commend_active.png",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/top/top",
+        "iconPath": "static/rank.png",
+        "selectedIconPath": "static/rank_active.png",
+        "text": "排行"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap95.json"
+}

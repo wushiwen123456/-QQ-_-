@@ -1,0 +1,1 @@
+<view class="top-bar"><view class="logo"><slot></slot></view><view class="text"><view class="title">QQ音乐</view><view class="title-fu">打开APP收藏下载</view></view><view class="down-load"><button class="button" plain="true">下载app</button></view></view>

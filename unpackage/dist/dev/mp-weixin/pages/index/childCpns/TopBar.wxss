@@ -1,0 +1,35 @@
+
+.top-bar{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 108rpx;
+	padding: 0 32rpx;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.text{
+	width: 65%;
+}
+.down-load{
+}
+.button{
+	font-size: 26rpx;
+}
+.title{
+	font-size: 32rpx;
+	color: #000;
+	font-weight: 400;
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+}
+.title-fu{
+	color: grey;
+	font-size: 24rpx;
+}
+

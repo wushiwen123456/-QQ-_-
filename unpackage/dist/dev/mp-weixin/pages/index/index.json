@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "QQ音乐",
+  "usingComponents": {
+    "top-bar": "/pages/index/childCpns/TopBar"
+  }
+}

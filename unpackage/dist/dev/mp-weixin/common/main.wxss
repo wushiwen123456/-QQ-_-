@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+page{
+	background-color: #FAFAFA;
+	font-size: 24rpx;
+}
+
+
