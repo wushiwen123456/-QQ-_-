@@ -2,7 +2,8 @@
   "pages": [
     "pages/HM-search/HM-search",
     "pages/index/index",
-    "pages/top/top"
+    "pages/top/top",
+    "pages/detail/detail"
   ],
   "subPackages": [],
   "window": {
@@ -18,18 +19,18 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "static/commend.png",
-        "selectedIconPath": "static/commend_active.png",
+        "iconPath": "static/tabBar/commend.png",
+        "selectedIconPath": "static/tabBar/commend_active.png",
         "text": "推荐"
       },
       {
         "pagePath": "pages/top/top",
-        "iconPath": "static/rank.png",
-        "selectedIconPath": "static/rank_active.png",
+        "iconPath": "static/tabBar/rank.png",
+        "selectedIconPath": "static/tabBar/rank_active.png",
         "text": "排行"
       }
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap95.json"
+  "sitemapLocation": "sitemap91.json"
 }

@@ -2,7 +2,7 @@
 	<!-- 头部 -->
 	<view class="content">
 		<view class="header">
-			<top-bar><image src="../../static/logo.svg" class="logo"></image></top-bar>
+			<top-bar><image src="../../static/home/logo.svg" class="logo"></image></top-bar>
 		</view>	
 		<!-- 搜索 -->
 		<view class="search-bar">

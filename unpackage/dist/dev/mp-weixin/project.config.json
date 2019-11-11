@@ -38,6 +38,11 @@
 					"name": "Search组件",
 					"id": 1,
 					"pathName": "pages/HM-search/HM-search"
+				},
+				{
+					"name": "详情页",
+					"id": 2,
+					"pathName": "pages/detail/detail"
 				}
 			]
 		}

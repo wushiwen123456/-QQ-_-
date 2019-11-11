@@ -15,8 +15,8 @@
 		</view>
 		<view class="search-keyword" @touchstart="blur">
 			<scroll-view class="keyword-list-box" v-show="isShowKeywordList" scroll-y @scrolltolower="reflash">
-				<view class="keyword-entry" hover-class="keyword-entry-tap" v-for="row in songData.list" :key="row.keyword">
-					<view class="keyword-text" @tap="doSearch(row.keyword)">
+				<view class="keyword-entry" hover-class="keyword-entry-tap" v-for="(row,index) in songData.list" :key="index">
+					<view class="keyword-text" @tap="doSearch(row)">
 						<rich-text :nodes="row.htmlStr"></rich-text>
 					</view>
 					<view class="keyword-img" @tap="setkeyword(row)">
@@ -160,10 +160,11 @@
 					var row = keywords[i];
 					//定义高亮#9f9f9f
 					var html = row.songname.replace(keyword, "<span style='color: #9f9f9f;'>" + keyword + "</span>");
-					html = '<div>' + html + '</div><div>'+ row.singer[0].name +'</div>';
+					html = '<div>' + html + '</div><div style="color:#666;margin-top:5px">'+ row.singer[0].name +'</div>';
 					var tmpObj = {
 						keyword: row.songname,
-						htmlStr: html
+						htmlStr: html,
+						albumid:row.albumid
 					};
 					keywordArr.push(tmpObj)
 				}
@@ -195,22 +196,28 @@
 				this.forbid = this.forbid ? '' : '_forbid';
 			},
 			//执行搜索
-			doSearch(key) {
+			doSearch(row) {
+				let key = row.keyword
 				key = key ? key : this.keyword ? this.keyword : this.defaultKeyword;
 				this.keyword = key;
 				this.saveKeyword(key); //保存为历史 
 				uni.showToast({
 					title: key,
 					icon: 'none',
-					duration: 2000
+					duration: 1000
 				});
 				//以下是示例跳转淘宝搜索，可自己实现搜索逻辑
 				//#ifdef APP-PLUS
 				plus.runtime.openURL(encodeURI('taobao://s.taobao.com/search?q=' + key));
 				//#endif
 				//#ifdef H5
-				window.location.href = 'taobao://s.taobao.com/search?q=' + key
+				// window.location.href = 'taobao://s.taobao.com/search?q=' + key
 				//#endif
+				// 微信小程序
+				uni.navigateTo({
+					url:`../detail/detail?albumid=${row.albumid}`,
+				})
+				
 			},
 			//保存关键字到历史记录
 			saveKeyword(keyword) {
@@ -258,10 +265,10 @@
 	.search-keyword {width:100%;background-color:rgb(242,242,242);}
 	.keyword-list-box {height:calc(100vh - 110upx);padding-top:10upx;border-radius:20upx 20upx 0 0;background-color:#fff;}
 	.keyword-entry-tap {background-color:#eee;}
-	.keyword-entry {width:94%;height:80upx;margin:0 3%;font-size:30upx;color:#333;display:flex;justify-content:space-between;align-items:center;border-bottom:solid 1upx #e7e7e7;}
+	.keyword-entry {width:94%;height:160upx;margin:0 3%;font-size:30upx;color:#333;display:flex;justify-content:space-between;align-items:center;border-bottom:solid 1upx #e7e7e7;}
 	.keyword-entry image {width:60upx;height:60upx;}
 	.keyword-entry .keyword-text,.keyword-entry .keyword-img {height:80upx;display:flex;align-items:center;}
-	.keyword-entry .keyword-text {width:90%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+	.keyword-entry .keyword-text {width:90%;overflow: hidden;height:100%;text-overflow: ellipsis;white-space: nowrap;}
 	.keyword-entry .keyword-img {width:10%;justify-content:center;}
 	.keyword-box {height:calc(100vh - 110upx);border-radius:20upx 20upx 0 0;background-color:#fff;}
 	.keyword-box .keyword-block {padding:10upx 0;}

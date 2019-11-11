@@ -13,6 +13,10 @@
             "path" : "pages/top/top",
             "style" : {}
         }	
+        ,{
+            "path" : "pages/detail/detail",
+            "style" : {}
+        }
     ],
 	
 	"globalStyle": {
@@ -28,14 +32,14 @@
 		"list":[
 			{
 				"pagePath":"pages/index/index",
-				"iconPath":"static/commend.png",
-				"selectedIconPath":"static/commend_active.png",
+				"iconPath":"static/tabBar/commend.png",
+				"selectedIconPath":"static/tabBar/commend_active.png",
 				"text":"推荐"
 			},
 			{
 				"pagePath":"pages/top/top",
-				"iconPath":"static/rank.png",
-				"selectedIconPath":"static/rank_active.png",
+				"iconPath":"static/tabBar/rank.png",
+				"selectedIconPath":"static/tabBar/rank_active.png",
 				"text":"排行"
 			}
 		]
@@ -51,6 +55,10 @@
 			{
 				"name":"Search组件",
 				"path":"pages/HM-search/HM-search"
+			},
+			{
+				"name":"详情页",
+				"path":"pages/detail/detail"
 			}
 		]
 	}

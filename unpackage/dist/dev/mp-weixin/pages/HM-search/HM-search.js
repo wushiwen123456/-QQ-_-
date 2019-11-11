@@ -192,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _search = __webpack_require__(/*! @/network/search.js */ 21);
-var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search-revision/mehaotian-search-revision */ "components/mehaotian-search-revision/mehaotian-search-revision").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search-revision/mehaotian-search-revision.vue */ 40));};var _default =
+var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search-revision/mehaotian-search-revision */ "components/mehaotian-search-revision/mehaotian-search-revision").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search-revision/mehaotian-search-revision.vue */ 49));};var _default =
 {
   data: function data() {
     return {
@@ -293,10 +293,11 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = functio
         var row = keywords[i];
         //定义高亮#9f9f9f
         var html = row.songname.replace(keyword, "<span style='color: #9f9f9f;'>" + keyword + "</span>");
-        html = '<div>' + html + '</div><div>' + row.singer[0].name + '</div>';
+        html = '<div>' + html + '</div><div style="color:#666;margin-top:5px">' + row.singer[0].name + '</div>';
         var tmpObj = {
           keyword: row.songname,
-          htmlStr: html };
+          htmlStr: html,
+          albumid: row.albumid };
 
         keywordArr.push(tmpObj);
       }
@@ -328,20 +329,26 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = functio
       this.forbid = this.forbid ? '' : '_forbid';
     },
     //执行搜索
-    doSearch: function doSearch(key) {
+    doSearch: function doSearch(row) {
+      var key = row.keyword;
       key = key ? key : this.keyword ? this.keyword : this.defaultKeyword;
       this.keyword = key;
       this.saveKeyword(key); //保存为历史 
       uni.showToast({
         title: key,
         icon: 'none',
-        duration: 2000 });
+        duration: 1000 });
 
       //以下是示例跳转淘宝搜索，可自己实现搜索逻辑
 
 
 
 
+
+
+      // 微信小程序
+      uni.navigateTo({
+        url: "../detail/detail?albumid=".concat(row.albumid) });
 
 
     },
