@@ -53,18 +53,23 @@
 </template>
 
 <script>
-	import { getAlbumid } from '@/network/detail.js'
+	import { getAlbumid,getMp3Url } from '@/network/detail.js'
 	export default {
 		onLoad(option) {
-			console.log(option.albumid)
-			
 			this.imgUrl = getAlbumid(option.albumid)
+			this.mp3Player = uni.createInnerAudioContext()
+			this.mp3Player.autoplay = true
+			this.dealUrl(option.songmid)
 		},
 		data() {
 			return {
 				imgUrl:'',
 				currentMode:0,
 				currentStatus:1,
+				mp3Player:'',
+				mp3Options:{
+					url:""
+				},
 				modeList:[
 					{
 						name:'列表循环',
@@ -106,8 +111,17 @@
 				}else{
 					this.currentStatus = 0
 				}
-			}
+			},
+			async dealUrl(songmid){
+				this.mp3Options.url = await getMp3Url(songmid)
+					this.mp3Player.src = this.mp3Options.url
+					this.mp3Player.play()
+			},
+			
 		},
+		onUnload() {
+			this.mp3Player.destroy()
+		}
 	}
 </script>
 

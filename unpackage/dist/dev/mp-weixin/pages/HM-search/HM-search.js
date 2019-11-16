@@ -192,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _search = __webpack_require__(/*! @/network/search.js */ 21);
-var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search-revision/mehaotian-search-revision */ "components/mehaotian-search-revision/mehaotian-search-revision").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search-revision/mehaotian-search-revision.vue */ 49));};var _default =
+var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search-revision/mehaotian-search-revision */ "components/mehaotian-search-revision/mehaotian-search-revision").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search-revision/mehaotian-search-revision.vue */ 52));};var _default =
 {
   data: function data() {
     return {
@@ -297,7 +297,8 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = functio
         var tmpObj = {
           keyword: row.songname,
           htmlStr: html,
-          albumid: row.albumid };
+          albumid: row.albumid,
+          songmid: row.songmid };
 
         keywordArr.push(tmpObj);
       }
@@ -348,7 +349,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = functio
 
       // 微信小程序
       uni.navigateTo({
-        url: "../detail/detail?albumid=".concat(row.albumid) });
+        url: "../detail/detail?albumid=".concat(row.albumid, "&songmid=").concat(row.songmid) });
 
 
     },
@@ -357,7 +358,6 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 23);var mSearch = functio
       uni.getStorage({
         key: 'OldKeys',
         success: function success(res) {
-          console.log(res.data);
           var OldKeys = JSON.parse(res.data);
           var findIndex = OldKeys.indexOf(keyword);
           if (findIndex == -1) {

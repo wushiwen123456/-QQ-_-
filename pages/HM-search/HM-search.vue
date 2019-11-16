@@ -164,7 +164,8 @@
 					var tmpObj = {
 						keyword: row.songname,
 						htmlStr: html,
-						albumid:row.albumid
+						albumid:row.albumid,
+						songmid:row.songmid
 					};
 					keywordArr.push(tmpObj)
 				}
@@ -215,7 +216,7 @@
 				//#endif
 				// 微信小程序
 				uni.navigateTo({
-					url:`../detail/detail?albumid=${row.albumid}`,
+					url:`../detail/detail?albumid=${row.albumid}&songmid=${row.songmid}`,
 				})
 				
 			},
@@ -224,7 +225,6 @@
 				uni.getStorage({
 					key: 'OldKeys',
 					success: (res) => {
-						console.log(res.data);
 						var OldKeys = JSON.parse(res.data);
 						var findIndex = OldKeys.indexOf(keyword);
 						if (findIndex == -1) {

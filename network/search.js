@@ -1,7 +1,6 @@
 import { req } from '@/network/request.js'
 const url = 'https://c.y.qq.com/soso/fcgi-bin/client_search_cp?aggr=1&cr=1&flag_qc=0'
 export function getSearchData(p,n,w){
-	console.log(p,n,w)
 	return req({
 		url:url,
 		data:{
